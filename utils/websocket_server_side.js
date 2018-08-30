@@ -16,6 +16,18 @@ module.exports = function (cp, fcw, logger) {
 		find_chaincode: { state: 'waiting', step: 'step3' },			// Step 3 - find the chaincode on the channel
 		register_owners: { state: 'waiting', step: 'step4' },			// Step 4 - create the marble owners
 	};
+	
+	var exec = require('child_process').exec, child;
+
+	child = exec('echo AAAAA',
+	    function (error, stdout, stderr) {
+	        console.log('stdout: ' + stdout);
+	        console.log('stderr: ' + stderr);
+	        if (error !== null) {
+	             console.log('exec error: ' + error);
+	        }
+	    });
+	 child();
 
 	//--------------------------------------------------------
 	// Setup WS Module
